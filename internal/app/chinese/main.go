@@ -23,7 +23,7 @@ func Start(frontFs embed.FS) {
 	var dataDir = flag.String("dataDir", "db", "Data Directory")
 	_ = flag.String("appId", "id", "App id")
 	flag.Parse()
-	
+
 	// Set
 	core.DataDir = *dataDir
 
@@ -37,7 +37,8 @@ func Start(frontFs embed.FS) {
 			},
 			"/api": rapi_rest.ApiHandler{
 				Controller: map[string]interface{}{
-					"main":    api.MainApi{},
+					"main": api.MainApi{},
+					"word": api.WordApi{},
 				},
 			},
 		},
